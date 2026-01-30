@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+:root {
+  /* Retro-light theme (paper + ink + neon accents) */
+  --bg: #fbf7ef;
+  --surface: #fffdf7;
+  --surface-2: #f4efe3;
+  --ink: #111827;
+  --muted: #6b7280;
+  --border: #111827;
+
+  --primary: #3b82f6;
+  --success: #06b6d4;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+
+  --shadow: 6px 6px 0 0 rgba(17, 24, 39, 1);
+  --shadow-sm: 3px 3px 0 0 rgba(17, 24, 39, 1);
+
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* --- Retro UI primitives (used alongside Tailwind classes) --- */
+.container-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.retro-card {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.retro-card--flat {
+  box-shadow: var(--shadow-sm);
+}
+
+.retro-header {
+  border-bottom: 2px solid var(--border);
+  padding: 14px 14px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+  border-top-left-radius: calc(var(--radius) - 2px);
+  border-top-right-radius: calc(var(--radius) - 2px);
+}
+
+.retro-body {
+  padding: 14px;
+}
+
+.retro-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.retro-subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.retro-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.04s ease-in-out;
+}
+
+.retro-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.retro-btn-primary {
+  background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+}
+
+.retro-btn-danger {
+  background: color-mix(in srgb, var(--danger) 10%, var(--surface));
+}
+
+.retro-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.retro-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.retro-input:focus {
+  outline: 3px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  outline-offset: 2px;
+}
+
+.retro-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.retro-table th,
+.retro-table td {
+  border-bottom: 2px solid var(--border);
+  padding: 10px;
+  text-align: left;
+}
+
+.retro-table th {
+  background: var(--surface-2);
+  font-weight: 900;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+small {
+  color: var(--muted);
+}
