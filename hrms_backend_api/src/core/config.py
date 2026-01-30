@@ -26,7 +26,14 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_TTL_MINUTES: int = 30
     REFRESH_TOKEN_TTL_MINUTES: int = 60 * 24 * 30  # 30 days
     
-    CORS_ALLOW_ORIGINS: Annotated[list[str], BeforeValidator(parse_cors)] = ["*"]
+    # NOTE:
+    # Starlette does not allow `allow_credentials=True` together with wildcard origins (`"*"`).
+    # Since the frontend runs on http://localhost:3000 in local dev, default to explicit origins
+    # to avoid CORS failures when cookies/authorization headers are sent.
+    CORS_ALLOW_ORIGINS: Annotated[list[str], BeforeValidator(parse_cors)] = [
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+    ]
 
     @computed_field
     @property
